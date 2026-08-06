@@ -1,0 +1,13 @@
+------- BACKTRACKING -------
+
+-> Permutation of a string
+-> Largest number in K swaps
+-> N digit numbers with digits in increasing order 
+-> Rat in a maze
+-> Print all possible palindromic partitions
+-> Word bank
+-> Letter combinations of a phone number
+-> Combinational  sum
+-> N Queens
+-> N Knights
+-> Sudoku solver

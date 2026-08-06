@@ -1,0 +1,26 @@
+------- RECURSION -------
+
+# I/P - O/P method (processed and un-processed) -----
+
+-> Print 1 to n / n to 1
+-> Height of a Binary Tree
+-> Sort an array
+-> Sort a stack
+-> String Subsequence
+-> String Substring
+-> Array Subset
+-> Delete middle element in a stack
+-> Reverse a stack using recursion
+-> K-th Symbol in Grammar
+-> Remove duplicates from a string
+-> Count # of occurrences
+-> Permutation 
+	a) with space (variation)
+	b) with case change
+8) Josephus problem / Execution in circle
+
+
+# Extended I/P - O/P method -----
+
+1) Binary string with no of 1s > no of 0's
+2) Generate balanced parenthesis
