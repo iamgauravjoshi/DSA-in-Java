@@ -1,0 +1,20 @@
+------- BINARY SEARCH -------
+
+-> Binary search (ascending sorted array)
+-> Binary search on reverse sorted array (descending)
+-> Order agnostic BS (when an array is sorted but its sorting order (ascending or descending) is unknown)
+-> 1st and Last occurance of an element in a sorted array
+-> Count of the element in a sorted Array
+-> No of times array is rotated
+-> Find an element in a rotated sorted array
+-> Searching in nearly sorted array
+-> Floor/Ceil of an element
+-> Next letter
+-> Index of last 1 in sorted array
+-> Find the position of an element in infinite sorted array
+-> Minimum difference element in a sorted array
+-> Bitonic array maximum element
+-> Search in bitonic array
+-> Search in row wise + column wise sorted matrix
+-> Find element in sorted array that appears only occurance
+-> Allocate minimum no of pages
