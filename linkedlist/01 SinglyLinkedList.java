@@ -1,11 +1,13 @@
+
 class SinglyLinkedList {
-    
+
     private Node head;
     private Node tail;
     private int size;
 
     // Node class
     public static class Node {
+
         int data;
         Node next;
 
@@ -22,13 +24,12 @@ class SinglyLinkedList {
         this.size = 0;
     }
 
-
     // ====================
     //      INSERTION 
     // ====================
     public void insertAtHead(int data) {
         Node newNode = new Node(data);
-        if(head == null && tail == null) {
+        if (head == null && tail == null) {
             head = newNode;
             tail = newNode;
         } else {
@@ -40,7 +41,7 @@ class SinglyLinkedList {
 
     public void insertAtTail(int data) {
         Node newNode = new Node(data);
-        if(head == null && tail == null) {
+        if (head == null && tail == null) {
             head = newNode;
             tail = newNode;
         } else {
@@ -51,37 +52,35 @@ class SinglyLinkedList {
     }
 
     public void insertAtPosition(int position, int data) {
-        if(position < 1 || position > size+1) {
+        if (position < 1 || position > size + 1) {
             System.out.println("Invalid position. Insertion not possible at position " + position);
-        } else if(position == 1) {
+        } else if (position == 1) {
             insertAtHead(data);
-        } else if (position == size+1) {
+        } else if (position == size + 1) {
             insertAtTail(data);
         } else {
             Node newNode = new Node(data);
             Node prevNode = head;
-            for(int i=1; i<position-1; i++) {
+            for (int i = 1; i < position - 1; i++) {
                 prevNode = prevNode.next;
             }
             newNode.next = prevNode.next;
             prevNode.next = newNode;
             size++;
-        } 
+        }
     }
-
 
     // ====================
     //      TRAVERSAL 
     // ====================
     public void printList() {
         Node current = head;
-        while(current != null) {
+        while (current != null) {
             System.out.print(current.data + " ");
             current = current.next;
         }
         System.out.println();
     }
-
 
     // ====================
     //  UTILITY FUNCTIONS 
@@ -95,7 +94,7 @@ class SinglyLinkedList {
     }
 
     public int getHead() {
-        if(head == null) {
+        if (head == null) {
             return -1;
         } else {
             return head.data;
@@ -103,7 +102,7 @@ class SinglyLinkedList {
     }
 
     public int getTail() {
-        if(tail == null) {
+        if (tail == null) {
             return -1;
         } else {
             return tail.data;
@@ -111,7 +110,7 @@ class SinglyLinkedList {
     }
 
     public void clear() {
-        if(head == null) {
+        if (head == null) {
             System.out.println("LinkedList is already empty");
         } else {
             head = null;
@@ -119,15 +118,14 @@ class SinglyLinkedList {
             size = 0;
         }
     }
- 
-    
+
     // ====================
     //      SEARCHING 
     // ====================
     public boolean search(int target) {
         Node current = head;
-        while(current != null) {
-            if(current.data == target) {
+        while (current != null) {
+            if (current.data == target) {
                 return true;
             }
             current = current.next;
@@ -138,8 +136,8 @@ class SinglyLinkedList {
     public int findPosition(int target) {
         Node current = head;
         int index = 1;
-        while(current != null) {
-            if(current.data == target) {
+        while (current != null) {
+            if (current.data == target) {
                 return index;
             }
             current = current.next;
@@ -148,19 +146,18 @@ class SinglyLinkedList {
         return -1;
     }
 
-
     // ====================
     //      UPDATION 
     // ====================
     // Update value using position
     public void updateAtPosition(int position, int newData) {
-        if(position < 1 || position > size) {
+        if (position < 1 || position > size) {
             System.out.println("IndexOutOfBound. Given index " + position + " not found!");
             return;
         }
-        Node current = head; 
-        for(int i=1; i<=position; i++) {
-            if(i == position) {
+        Node current = head;
+        for (int i = 1; i <= position; i++) {
+            if (i == position) {
                 current.data = newData;
                 return;
             } else {
@@ -172,8 +169,8 @@ class SinglyLinkedList {
     // Update first occurance of value
     public boolean updateValue(int oldValue, int newValue) {
         Node current = head;
-        while(current != null) {
-            if(current.data == oldValue) {
+        while (current != null) {
+            if (current.data == oldValue) {
                 current.data = newValue;
                 return true;
             } else {
@@ -188,10 +185,10 @@ class SinglyLinkedList {
     //      DELETION 
     // ====================
     public void deleteHead() {
-        if(head == null) {
+        if (head == null) {
             System.out.println("LinkedList is already empty");
             return;
-        } else if(head == tail) {
+        } else if (head == tail) {
             head = tail = null;
         } else {
             head = head.next;
@@ -200,14 +197,14 @@ class SinglyLinkedList {
     }
 
     public void deleteTail() {
-        if(head == null) {
+        if (head == null) {
             System.out.println("LinkedList is already empty");
             return;
-        } else if(head == tail) {
+        } else if (head == tail) {
             head = tail = null;
         } else {
             Node current = head;
-            for(int i=1; i<size-1; i++) {
+            for (int i = 1; i < size - 1; i++) {
                 current = current.next;
             }
             current.next = null;
@@ -217,15 +214,15 @@ class SinglyLinkedList {
     }
 
     public void deleteAtPosition(int position) {
-        if(position < 1 || position > size) {
+        if (position < 1 || position > size) {
             System.out.println("IndexOutOfBound. Given index " + position + " not found!");
-        } else if(position == 1) {
+        } else if (position == 1) {
             deleteHead();
-        } else if(position == size) {
+        } else if (position == size) {
             deleteTail();
         } else {
             Node current = head;
-            for(int i=1; i<position-1; i++) {
+            for (int i = 1; i < position - 1; i++) {
                 current = current.next;
             }
             Node nodeToDelete = current.next;
@@ -236,7 +233,7 @@ class SinglyLinkedList {
     }
 
     public boolean deleteValue(int target) {
-        if(head == null) {
+        if (head == null) {
             System.out.println("No value to delete. LinkedList is empty.");
             return false;
         } else if (head.data == target) {
@@ -245,12 +242,12 @@ class SinglyLinkedList {
         }
 
         Node current = head;
-        while(current.next != null) {
-            if(current.next.data == target) {
+        while (current.next != null) {
+            if (current.next.data == target) {
                 Node nodeToDelete = current.next;
                 current.next = nodeToDelete.next;
 
-                if(nodeToDelete == tail) {
+                if (nodeToDelete == tail) {
                     tail = current;
                 }
 
@@ -270,7 +267,6 @@ class SinglyLinkedList {
         // if(list.isEmpty()) {
         //     System.out.println("List is empty");
         // }
-
         // System.out.println("Size of LL: " + list.getSize());
         // list.insertAtHead(10);
         // list.printList();
@@ -284,71 +280,53 @@ class SinglyLinkedList {
         // list.printList();
         // list.insertAtTail(120);
         // list.printList();
-
         // list.insertAtPosition(1, 1);
         // list.printList();
-
         // list.insertAtPosition(10, 7);
         // list.insertAtPosition(7, 7);
         // list.printList();
-
         // System.out.println("Is 20 exists: " + list.search(20));
         // System.out.println("Node 110 position: " + list.findPosition(110));
-
         // list.updateAtPosition(8, 8);
         // list.updateValue(15, 25);
         // list.printList();
-
         // list.clear();
         // list.printList();
-        
         list.insertAtHead(10);
         list.insertAtTail(20);
         list.insertAtTail(30);
         list.printList();
 
         // System.out.println("----- Head Deletion -----");
-
         // System.out.println("head data: " + list.getHead());
         // System.out.println("tail data: " + list.getTail());
         // System.out.println("list size: " + list.getSize());
-
         // list.deleteHead();
         // System.out.println();
-
         // System.out.println("head data: " + list.getHead());
         // System.out.println("tail data: " + list.getTail());
         // System.out.println("list size: " + list.getSize());
-
         // list.deleteHead();
         // list.printList();
         // System.out.println();
-
         // System.out.println("head data: " + list.getHead());
         // System.out.println("tail data: " + list.getTail());
         // System.out.println("list size: " + list.getSize());
-
         // System.out.println("----- Tail Deletion -----");
-
         // System.out.println("head data: " + list.getHead());
         // System.out.println("tail data: " + list.getTail());
         // System.out.println("list size: " + list.getSize());
-
         // list.deleteTail();
         // System.out.println();
-
         // System.out.println("head data: " + list.getHead());
         // System.out.println("tail data: " + list.getTail());
         // System.out.println("list size: " + list.getSize());
-
         // list.deleteTail();
         // list.printList();
         // System.out.println();
-
         // System.out.println("head data: " + list.getHead());
         // System.out.println("tail data: " + list.getTail());
         // System.out.println("list size: " + list.getSize());
-
         list.deleteAtPosition(2);
         list.printList();
     }
