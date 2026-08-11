@@ -53,13 +53,10 @@ class SinglyLinkedList {
     public void insertAtPosition(int position, int data) {
         if(position < 1 || position > size+1) {
             System.out.println("Invalid position. Insertion not possible at position " + position);
-            return;
         } else if(position == 1) {
             insertAtHead(data);
-            return;
         } else if (position == size+1) {
             insertAtTail(data);
-            return;
         } else {
             Node newNode = new Node(data);
             Node prevNode = head;
@@ -68,8 +65,8 @@ class SinglyLinkedList {
             }
             newNode.next = prevNode.next;
             prevNode.next = newNode;
-        }
-        size++;
+            size++;
+        } 
     }
 
 
@@ -132,9 +129,8 @@ class SinglyLinkedList {
         while(current != null) {
             if(current.data == target) {
                 return true;
-            } else {
-                current = current.next;
             }
+            current = current.next;
         }
         return false;
     }
@@ -145,10 +141,9 @@ class SinglyLinkedList {
         while(current != null) {
             if(current.data == target) {
                 return index;
-            } else {
-                current = current.next;
-                index++;
             }
+            current = current.next;
+            index++;
         }
         return -1;
     }
@@ -224,16 +219,13 @@ class SinglyLinkedList {
     public void deleteAtPosition(int position) {
         if(position < 1 || position > size) {
             System.out.println("IndexOutOfBound. Given index " + position + " not found!");
-            return;
         } else if(position == 1) {
             deleteHead();
-            return;
         } else if(position == size) {
             deleteTail();
-            return;
         } else {
             Node current = head;
-            for(int i=1; i<position; i++) {
+            for(int i=1; i<position-1; i++) {
                 current = current.next;
             }
             Node nodeToDelete = current.next;
@@ -243,8 +235,33 @@ class SinglyLinkedList {
         }
     }
 
-    public void deleteValue() {
-        
+    public boolean deleteValue(int target) {
+        if(head == null) {
+            System.out.println("No value to delete. LinkedList is empty.");
+            return false;
+        } else if (head.data == target) {
+            deleteHead();
+            return true;
+        }
+
+        Node current = head;
+        while(current.next != null) {
+            if(current.next.data == target) {
+                Node nodeToDelete = current.next;
+                current.next = nodeToDelete.next;
+
+                if(nodeToDelete == tail) {
+                    tail = current;
+                }
+
+                nodeToDelete.next = null;
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
+
+        return false;
     }
 
     public static void main(String[] args) {
