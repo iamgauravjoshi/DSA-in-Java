@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DoublyLinkedList",
+            "request": "launch",
+            "mainClass": "DoublyLinkedList",
+            "projectName": "Java_db56df9"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
