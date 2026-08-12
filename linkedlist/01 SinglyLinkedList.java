@@ -188,11 +188,15 @@ class SinglyLinkedList {
         if (head == null) {
             System.out.println("LinkedList is already empty");
             return;
-        } else if (head == tail) {
-            head = tail = null;
-        } else {
-            head = head.next;
         }
+
+        if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        }
+
+        head = head.next;
         size--;
     }
 
@@ -200,16 +204,20 @@ class SinglyLinkedList {
         if (head == null) {
             System.out.println("LinkedList is already empty");
             return;
-        } else if (head == tail) {
-            head = tail = null;
-        } else {
-            Node current = head;
-            for (int i = 1; i < size - 1; i++) {
-                current = current.next;
-            }
-            current.next = null;
-            tail = current;
         }
+
+        if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        }
+
+        Node current = head;
+        for (int i = 1; i < size - 1; i++) {
+            current = current.next;
+        }
+        current.next = null;
+        tail = current;
         size--;
     }
 

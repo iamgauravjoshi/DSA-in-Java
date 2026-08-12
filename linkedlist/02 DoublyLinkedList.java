@@ -33,7 +33,6 @@ class DoublyLinkedList {
 
         if (head == null && tail == null) {
             head = tail = newNode;
-            return;
         } else {
             head.previous = newNode;
             newNode.next = head;
@@ -47,7 +46,6 @@ class DoublyLinkedList {
 
         if (head == null && tail == null) {
             head = tail = newNode;
-            return;
         } else {
             tail.next = newNode;
             newNode.previous = tail;
@@ -59,24 +57,31 @@ class DoublyLinkedList {
     public void insertAtPosition(int position, int data) {
         if (position < 1 || position > size + 1) {
             System.out.println("Invalid position. Insertion not possible at position " + position);
-        } else if (position == 1) {
-            insertAtHead(data);
-        } else if (position == size + 1) {
-            insertAtTail(data);
-        } else {
-            Node newNode = new Node(data);
-            Node current = head;
-            for (int i = 1; i < position - 1; i++) {
-                current = current.next;
-            }
-
-            newNode.next = current.next;
-            newNode.previous = current;
-
-            current.next.previous = newNode;
-            current.next = newNode;
-            size++;
         }
+
+        if (position == 1) {
+            insertAtHead(data);
+            return;
+        }
+
+        if (position == size + 1) {
+            insertAtTail(data);
+            return;
+        }
+
+        Node newNode = new Node(data);
+        Node current = head;
+
+        for (int i = 1; i < position - 1; i++) {
+            current = current.next;
+        }
+
+        newNode.next = current.next;
+        newNode.previous = current;
+
+        current.next.previous = newNode;
+        current.next = newNode;
+        size++;
     }
 
     // ====================
@@ -199,39 +204,126 @@ class DoublyLinkedList {
     //      DELETION 
     // ====================
     public void deleteHead() {
+        // Case 1: Empty list
         if (head == null) {
             System.out.println("LinkedList is already empty");
             return;
-        } else if (head == tail) {
-            head = tail = null;
-        } else {
-            head = head.next;
         }
+
+        // Case 2: Only one node
+        if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        }
+
+        // Case 3: Multiple nodes
+        Node temp = head;
+        head = head.next;
+        head.previous = null;
+        temp.next = null;
         size--;
     }
 
     public void deleteTail() {
+        // Case 1: Empty list
         if (head == null) {
             System.out.println("LinkedList is already empty");
             return;
-        } else if (head == tail) {
-            head = tail = null;
-        } else {
-            Node current = head;
-            for (int i = 1; i < size - 1; i++) {
-                current = current.next;
-            }
-            current.next = null;
-            tail = current;
         }
+
+        // Case 2: Only one node
+        if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        }
+
+        // Case 3: Multiple nodes
+        Node temp = tail;
+        tail = tail.previous;
+        tail.next = null;
+        temp.previous = null;
         size--;
     }
 
     public void deleteAtPosition(int position) {
+        // Case 1: Position is out of bound
+        if (position < 1 || position > size) {
+            System.out.println("IndexOutOfBound. Position: " + position + ", Size: " + size);
+            return;
+        }
 
+        // Case 2: Delete the head (position 1)
+        if (position == 1) {
+            deleteHead();
+            return;
+        }
+
+        // Case 3: Delete the tail (last position)
+        if (position == size) {
+            deleteTail();
+            return;
+        }
+
+        // Case 4: Delete a node from the middle
+        Node current = head;
+        for (int i = 1; i < position; i++) {
+            current = current.next;
+        }
+
+        // Remove current node
+        current.previous.next = current.next;
+        current.next.previous = current.previous;
+
+        // Disconnect the node
+        current.previous = null;
+        current.next = null;
+        size--;
     }
 
+    // Delete 1st occurrence of an element
     public boolean deleteValue(int target) {
+        if (head == null) {
+            System.out.println("LinkedList is empty. No Node to delete.");
+            return false;
+        }
+
+        if (head == tail) {
+            head = tail = null;
+            size--;
+            return true;
+        }
+
+        Node current = head;
+        while (current != null) {
+            if (current.data == target) {
+                // If the target value is head element -> delete head
+                if (current.previous == null) {
+                    head = current.next;
+                    current.next.previous = null;
+                    current.next = null;
+                    return true;
+                } // If the target value is tail element -> delete tail
+                else if (current.next == null) {
+                    tail = current.previous;
+                    current.previous.next = null;
+                    current.previous = null;
+                    return true;
+                } // Otherwise element is present in the middle
+                else {
+                    current.previous.next = current.next;
+                    current.next.previous = current.previous;
+
+                    current.previous = null;
+                    current.next = null;
+                    size--;
+                    return true;
+                }
+            }
+            current = current.next;
+        }
+
         return false;
     }
 
@@ -248,7 +340,18 @@ class DoublyLinkedList {
 
         list.insertAtPosition(3, 30);
         list.printList();
-        list.printBackward();
-        System.out.println("Doubly Linked List");
+
+        // System.out.print("Backward list: ");
+        // list.printBackward();
+        // System.out.println("Is present: " + list.search(60));
+        // System.out.println("Position: " + list.findPosition(30));
+        // System.out.print("Delete Head: ");
+        // list.deleteHead();
+        // list.printList();
+        // System.out.print("Delete Tail: ");
+        // list.deleteTail();
+        // list.printList();
+        list.deleteAtPosition(6);
+        list.printList();
     }
 }
