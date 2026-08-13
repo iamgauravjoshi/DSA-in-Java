@@ -1,13 +1,15 @@
 
-class CircularSinglyLinkedList {
+class CircularDoublyLinkedList {
 
     static class Node {
 
         int data;
+        Node previous;
         Node next;
 
         public Node(int data) {
             this.data = data;
+            this.previous = null;
             this.next = null;
         }
     }
@@ -17,7 +19,7 @@ class CircularSinglyLinkedList {
     private Node tail;
     private int size;
 
-    public CircularSinglyLinkedList() {
+    public CircularDoublyLinkedList() {
         this.head = null;
         this.tail = null;
         this.size = 0;
@@ -29,57 +31,51 @@ class CircularSinglyLinkedList {
     public void insertAtHead(int data) {
         Node newNode = new Node(data);
 
+        // Case 1: Empty list
         if (head == null && tail == null) {
             head = tail = newNode;
-            tail.next = newNode;
+            head.previous = tail;
+            tail.next = head;
+            size++;
+            return;
         }
+
+        // Case 2: Non-empty list
         newNode.next = head;
-        head = newNode;
+        newNode.previous = tail;
 
         tail.next = newNode;
+        head.previous = newNode;
+
+        head = newNode;
         size++;
     }
 
     public void insertAtTail(int data) {
         Node newNode = new Node(data);
 
+        // Case 1: Empty list
         if (head == null && tail == null) {
             head = tail = newNode;
+            head.previous = tail;
             tail.next = head;
+            size++;
+            return;
         }
 
-        tail.next = newNode;
-        tail = newNode;
-        tail.next = head;
+        // Case 2: Non-empty list
+        newNode.next = head;
+        newNode.previous = tail;
 
+        tail.next = newNode;
+        head.previous = newNode;
+
+        head = newNode;
         size++;
     }
 
     public void insertAtPosition(int position, int data) {
-        if (position < 1 || position > size + 1) {
-            System.out.println("Invalid position. Insertion not possible at position " + position);
-        }
 
-        if (position == 1) {
-            insertAtHead(data);
-            return;
-        }
-
-        if (position == size + 1) {
-            insertAtTail(data);
-            return;
-        }
-
-        Node newNode = new Node(data);
-        Node current = head;
-
-        for (int i = 1; i < position - 1; i++) {
-            current = current.next;
-        }
-
-        newNode.next = current.next;
-        current.next = newNode;
-        size++;
     }
 
     // ====================
@@ -88,29 +84,19 @@ class CircularSinglyLinkedList {
     public void deleteHead() {
         // Case 1: Empty list
         if (head == null) {
-            System.out.println("Circular LinkedList is empty.");
+            System.out.println("Circular Doubly LinkedList is empty.");
             return;
         }
 
         // Case 2: Only one node
-        if (head == tail) {
-            head = tail = null;
-            size--;
-            return;
-        }
-
         // Case 3: Multiple nodes
-        tail.next = head.next;
-        head.next = null;
-        head = tail.next;
-
         size--;
     }
 
     public void deleteTail() {
         // Case 1: Empty list
         if (head == null) {
-            System.out.println("Circular Singly LinkedList is empty.");
+            System.out.println("Circular Doubly LinkedList is empty.");
             return;
         }
 
@@ -144,27 +130,8 @@ class CircularSinglyLinkedList {
         }
 
         // Case 2: Delete the head (position 1)
-        if (position == 1) {
-            deleteHead();
-            return;
-        }
-
         // Case 3: Delete the tail (last position)
-        if (position == size) {
-            deleteTail();
-            return;
-        }
-
         // Case 4: Delete a node from the middle
-        Node current = head;
-        for (int i = 1; i < position - 1; i++) {
-            current = current.next;
-        }
-
-        Node nodeToDelete = current.next;
-        current.next = nodeToDelete.next;
-        nodeToDelete.next = null;
-        size--;
     }
 
     // Delete 1st occurrence of an element
@@ -179,25 +146,6 @@ class CircularSinglyLinkedList {
             return true;
         }
 
-        Node current = head;
-
-        while (current.next != head) {
-
-            if (current.next.data == target) {
-                // If deleting the tail, update tail
-                if (current.next == tail) {
-                    tail = current;
-                }
-
-                Node nodeToDelete = current.next;
-                current.next = nodeToDelete.next;
-                nodeToDelete.next = null;
-                size--;
-                return true;
-            }
-            current = current.next;
-        }
-
         System.out.println(target + " not found in circular linkedlist.");
         return false;
     }
@@ -210,15 +158,6 @@ class CircularSinglyLinkedList {
         if (position < 1 || position > size) {
             System.out.println("IndexOutOfBound. Given index " + position + " not found!");
             return;
-        }
-        Node current = head;
-        for (int i = 1; i <= position; i++) {
-            if (i == position) {
-                current.data = newData;
-                return;
-            } else {
-                current = current.next;
-            }
         }
     }
 
@@ -236,15 +175,6 @@ class CircularSinglyLinkedList {
             return false;
         }
 
-        Node current = head;
-
-        do {
-            if (current.data == target) {
-                return true;
-            }
-            current = current.next;
-        } while (current != head);
-
         return false;
     }
 
@@ -252,17 +182,6 @@ class CircularSinglyLinkedList {
         if (head == null) {
             return -1;
         }
-
-        Node current = head;
-        int index = 1;
-
-        do {
-            if (current.data == target) {
-                return index;
-            }
-            current = current.next;
-            index++;
-        } while (current != head);
 
         return -1;
     }
@@ -272,7 +191,7 @@ class CircularSinglyLinkedList {
     // ====================
     public void printList() {
         if (head == null) {
-            System.out.println("Circular Singly LinkedList is empty.");
+            System.out.println("Circular Doubly LinkedList is empty.");
             return;
         }
 

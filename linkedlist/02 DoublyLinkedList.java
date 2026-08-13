@@ -85,122 +85,6 @@ class DoublyLinkedList {
     }
 
     // ====================
-    //      TRAVERSAL 
-    // ====================
-    public void printList() {
-        Node current = head;
-        while (current != null) {
-            System.out.print(current.data + " ");
-            current = current.next;
-        }
-        System.out.println();
-    }
-
-    public void printBackward() {
-        Node current = tail;
-        while (current != null) {
-            System.out.print(current.data + " ");
-            current = current.previous;
-        }
-        System.out.println();
-    }
-
-    // ====================
-    //      SEARCHING 
-    // ====================
-    public boolean search(int target) {
-        Node current = head;
-        while (current != null) {
-            if (current.data == target) {
-                return true;
-            }
-            current = current.next;
-        }
-        return false;
-    }
-
-    public int findPosition(int target) {
-        Node current = head;
-        int index = 1;
-        while (current != null) {
-            if (current.data == target) {
-                return index;
-            }
-            current = current.next;
-            index++;
-        }
-        return -1;
-    }
-
-    // ====================
-    //  UTILITY FUNCTIONS 
-    // ====================
-    public int getSize() {
-        return size;
-    }
-
-    public boolean isEmpty() {
-        return head == null;
-    }
-
-    public int getHead() {
-        if (head == null) {
-            return -1;
-        } else {
-            return head.data;
-        }
-    }
-
-    public int getTail() {
-        if (tail == null) {
-            return -1;
-        } else {
-            return tail.data;
-        }
-    }
-
-    public void clear() {
-        if (head == null) {
-            System.out.println("LinkedList is already empty");
-        } else {
-            head = null;
-            tail = null;
-            size = 0;
-        }
-    }
-
-    // ====================
-    //      UPDATION 
-    // ====================
-    // Update value using position
-    public void updateAtPosition(int position, int newData) {
-        if (position < 1 || position > size) {
-            System.out.println("IndexOutOfBound. Given index " + position + " not found!");
-            return;
-        }
-        Node current = head;
-        for (int i = 1; i < position - 1; i++) {
-            current = current.next;
-        }
-        current.data = newData;
-    }
-
-    // Update first occurance of value
-    public boolean updateValue(int oldValue, int newValue) {
-        Node current = head;
-        while (current != null) {
-            if (current.data == oldValue) {
-                current.data = newValue;
-                return true;
-            } else {
-                current = current.next;
-            }
-        }
-        System.out.println("Node not found with value " + oldValue);
-        return false;
-    }
-
-    // ====================
     //      DELETION 
     // ====================
     public void deleteHead() {
@@ -325,6 +209,122 @@ class DoublyLinkedList {
         }
 
         return false;
+    }
+
+    // ====================
+    //      UPDATION 
+    // ====================
+    // Update value using position
+    public void updateAtPosition(int position, int newData) {
+        if (position < 1 || position > size) {
+            System.out.println("IndexOutOfBound. Given index " + position + " not found!");
+            return;
+        }
+        Node current = head;
+        for (int i = 1; i < position - 1; i++) {
+            current = current.next;
+        }
+        current.data = newData;
+    }
+
+    // Update first occurance of value
+    public boolean updateValue(int oldValue, int newValue) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == oldValue) {
+                current.data = newValue;
+                return true;
+            } else {
+                current = current.next;
+            }
+        }
+        System.out.println("Node not found with value " + oldValue);
+        return false;
+    }
+
+    // ====================
+    //      SEARCHING 
+    // ====================
+    public boolean search(int target) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == target) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    public int findPosition(int target) {
+        Node current = head;
+        int index = 1;
+        while (current != null) {
+            if (current.data == target) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
+    // ====================
+    //      TRAVERSAL 
+    // ====================
+    public void printList() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    public void printBackward() {
+        Node current = tail;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.previous;
+        }
+        System.out.println();
+    }
+
+    // ====================
+    //  UTILITY FUNCTIONS 
+    // ====================
+    public int getSize() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public int getHead() {
+        if (head == null) {
+            return -1;
+        } else {
+            return head.data;
+        }
+    }
+
+    public int getTail() {
+        if (tail == null) {
+            return -1;
+        } else {
+            return tail.data;
+        }
+    }
+
+    public void clear() {
+        if (head == null) {
+            System.out.println("LinkedList is already empty");
+        } else {
+            head = null;
+            tail = null;
+            size = 0;
+        }
     }
 
     public static void main(String[] args) {

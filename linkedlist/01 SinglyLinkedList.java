@@ -71,6 +71,169 @@ class SinglyLinkedList {
     }
 
     // ====================
+    //      DELETION 
+    // ====================
+    public void deleteHead() {
+        if (head == null) {
+            System.out.println("LinkedList is already empty");
+            return;
+        }
+
+        if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        }
+
+        Node current = head;
+        head.next = null;
+        head = current.next;
+        size--;
+    }
+
+    public void deleteTail() {
+        if (head == null) {
+            System.out.println("LinkedList is already empty");
+            return;
+        }
+
+        if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        }
+
+        Node current = head;
+
+        for (int i = 1; i < size - 1; i++) {
+            current = current.next;
+        }
+
+        current.next = null;
+        tail = current;
+        size--;
+    }
+
+    public void deleteAtPosition(int position) {
+        if (position < 1 || position > size) {
+            System.out.println("IndexOutOfBound. Given index " + position + " not found!");
+            return;
+        }
+
+        if (position == 1) {
+            deleteHead();
+            return;
+        }
+
+        if (position == size) {
+            deleteTail();
+            return;
+        }
+
+        Node current = head;
+
+        for (int i = 1; i < position - 1; i++) {
+            current = current.next;
+        }
+
+        current.next = current.next.next;
+        current.next.next = null;
+        size--;
+    }
+
+    // Delete 1st occurrence of an element
+    public boolean deleteValue(int target) {
+        if (head == null) {
+            System.out.println("No value to delete. LinkedList is empty.");
+            return false;
+        } else if (head.data == target) {
+            deleteHead();
+            return true;
+        }
+
+        Node current = head;
+        while (current.next != null) {
+            if (current.next.data == target) {
+                Node nodeToDelete = current.next;
+                current.next = nodeToDelete.next;
+
+                if (nodeToDelete == tail) {
+                    tail = current;
+                }
+
+                nodeToDelete.next = null;
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
+
+        return false;
+    }
+
+    // ====================
+    //      UPDATION 
+    // ====================
+    // Update value using position
+    public void updateAtPosition(int position, int newData) {
+        if (position < 1 || position > size) {
+            System.out.println("IndexOutOfBound. Given index " + position + " not found!");
+            return;
+        }
+        Node current = head;
+        for (int i = 1; i <= position; i++) {
+            if (i == position) {
+                current.data = newData;
+                return;
+            } else {
+                current = current.next;
+            }
+        }
+    }
+
+    // Update first occurance of value
+    public boolean updateValue(int oldValue, int newValue) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == oldValue) {
+                current.data = newValue;
+                return true;
+            } else {
+                current = current.next;
+            }
+        }
+        System.out.println("Node not found with value " + oldValue);
+        return false;
+    }
+
+    // ====================
+    //      SEARCHING 
+    // ====================
+    public boolean search(int target) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == target) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    public int findPosition(int target) {
+        Node current = head;
+        int index = 1;
+        while (current != null) {
+            if (current.data == target) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
+    // ====================
     //      TRAVERSAL 
     // ====================
     public void printList() {
@@ -117,156 +280,6 @@ class SinglyLinkedList {
             tail = null;
             size = 0;
         }
-    }
-
-    // ====================
-    //      SEARCHING 
-    // ====================
-    public boolean search(int target) {
-        Node current = head;
-        while (current != null) {
-            if (current.data == target) {
-                return true;
-            }
-            current = current.next;
-        }
-        return false;
-    }
-
-    public int findPosition(int target) {
-        Node current = head;
-        int index = 1;
-        while (current != null) {
-            if (current.data == target) {
-                return index;
-            }
-            current = current.next;
-            index++;
-        }
-        return -1;
-    }
-
-    // ====================
-    //      UPDATION 
-    // ====================
-    // Update value using position
-    public void updateAtPosition(int position, int newData) {
-        if (position < 1 || position > size) {
-            System.out.println("IndexOutOfBound. Given index " + position + " not found!");
-            return;
-        }
-        Node current = head;
-        for (int i = 1; i <= position; i++) {
-            if (i == position) {
-                current.data = newData;
-                return;
-            } else {
-                current = current.next;
-            }
-        }
-    }
-
-    // Update first occurance of value
-    public boolean updateValue(int oldValue, int newValue) {
-        Node current = head;
-        while (current != null) {
-            if (current.data == oldValue) {
-                current.data = newValue;
-                return true;
-            } else {
-                current = current.next;
-            }
-        }
-        System.out.println("Node not found with value " + oldValue);
-        return false;
-    }
-
-    // ====================
-    //      DELETION 
-    // ====================
-    public void deleteHead() {
-        if (head == null) {
-            System.out.println("LinkedList is already empty");
-            return;
-        }
-
-        if (head == tail) {
-            head = tail = null;
-            size--;
-            return;
-        }
-
-        head = head.next;
-        size--;
-    }
-
-    public void deleteTail() {
-        if (head == null) {
-            System.out.println("LinkedList is already empty");
-            return;
-        }
-
-        if (head == tail) {
-            head = tail = null;
-            size--;
-            return;
-        }
-
-        Node current = head;
-        for (int i = 1; i < size - 1; i++) {
-            current = current.next;
-        }
-        current.next = null;
-        tail = current;
-        size--;
-    }
-
-    public void deleteAtPosition(int position) {
-        if (position < 1 || position > size) {
-            System.out.println("IndexOutOfBound. Given index " + position + " not found!");
-        } else if (position == 1) {
-            deleteHead();
-        } else if (position == size) {
-            deleteTail();
-        } else {
-            Node current = head;
-            for (int i = 1; i < position - 1; i++) {
-                current = current.next;
-            }
-            Node nodeToDelete = current.next;
-            current.next = nodeToDelete.next;
-            nodeToDelete.next = null;
-            size--;
-        }
-    }
-
-    public boolean deleteValue(int target) {
-        if (head == null) {
-            System.out.println("No value to delete. LinkedList is empty.");
-            return false;
-        } else if (head.data == target) {
-            deleteHead();
-            return true;
-        }
-
-        Node current = head;
-        while (current.next != null) {
-            if (current.next.data == target) {
-                Node nodeToDelete = current.next;
-                current.next = nodeToDelete.next;
-
-                if (nodeToDelete == tail) {
-                    tail = current;
-                }
-
-                nodeToDelete.next = null;
-                size--;
-                return true;
-            }
-            current = current.next;
-        }
-
-        return false;
     }
 
     public static void main(String[] args) {
