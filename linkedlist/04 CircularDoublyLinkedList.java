@@ -238,7 +238,7 @@ class CircularDoublyLinkedList {
     }
 
     public static void main(String[] args) {
-        CircularSinglyLinkedList list = new CircularSinglyLinkedList();
+        CircularDoublyLinkedList list = new CircularDoublyLinkedList();
 
         // System.out.println("Is list empty? : " + list.isEmpty());
         list.insertAtHead(10);

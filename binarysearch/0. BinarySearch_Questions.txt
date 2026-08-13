@@ -1,13 +1,13 @@
 ------- BINARY SEARCH -------
 
--> Binary search (ascending sorted array)   ✅
--> Binary search on reverse sorted array (descending)   ✅
+-> Binary search on ascending and descending sorted array   ✅
 -> Order agnostic binary search (when sorting order is unknown)   ✅
 -> 1st and Last occurance of an element in a sorted array   ✅
 -> Total occurrence count of an element in a sorted array   ✅
 -> Count no of times array is rotated (findKRotation)   ✅
--> Find minimum and maximum element in a rotated sorted array
+-> Find minimum and maximum element in a rotated sorted array   ✅
 -> Find an element in a rotated sorted array
+-> Find the first occurrence index of an element in a sorted rotated array  ✅
 -> Searching in nearly sorted array
 -> Floor/Ceil of an element
 -> Next letter
