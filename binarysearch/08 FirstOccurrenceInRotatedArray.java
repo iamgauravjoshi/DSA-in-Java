@@ -76,3 +76,89 @@ class FirstOccurrenceInRotatedArray {
         return start;
     }
 }
+
+class Solution {
+
+    // Finds the index of the smallest element.
+    // This is the rotation point.
+    static int findPivot(int[] arr) {
+        int low = 0;
+        int high = arr.length - 1;
+
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+
+            if (arr[mid] < arr[high]) {
+                // Minimum is at mid or to its left
+                high = mid;
+            } else if (arr[mid] > arr[high]) {
+                // Minimum must be to the right of mid
+                low = mid + 1;
+            } else {
+                // arr[mid] == arr[high]
+                // We cannot determine which side contains
+                // the minimum, so safely reduce high.
+                high--;
+            }
+        }
+
+        return low;
+    }
+
+    // Finds the first occurrence of key in a sorted range [low, high].
+    static int firstOccurrence(int[] arr, int low, int high, int key) {
+        int answer = -1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (arr[mid] == key) {
+                answer = mid;
+
+                // Continue searching towards the left
+                // to find the first occurrence.
+                high = mid - 1;
+            } else if (arr[mid] < key) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        return answer;
+    }
+
+    // Main function
+    static int searchFirst(int[] arr, int key) {
+
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+
+        // Step 1: Find rotation point
+        int pivot = findPivot(arr);
+
+        // Step 2: Search the left sorted part first.
+        // This is important because we need the smallest
+        // index in the rotated array.
+        int answer = firstOccurrence(arr, 0, pivot - 1, key);
+
+        if (answer != -1) {
+            return answer;
+        }
+
+        // Step 3: Search the right sorted part.
+        return firstOccurrence(arr, pivot, arr.length - 1, key);
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {4, 4, 5, 6, 1, 2, 2, 4};
+
+        int key = 4;
+
+        int index = searchFirst(arr, key);
+
+        System.out.println("First occurrence index = " + index);
+    }
+}
