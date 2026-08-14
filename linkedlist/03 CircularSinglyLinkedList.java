@@ -103,7 +103,6 @@ class CircularSinglyLinkedList {
         tail.next = head.next;
         head.next = null;
         head = tail.next;
-
         size--;
     }
 
@@ -124,6 +123,7 @@ class CircularSinglyLinkedList {
 
         // Case 3: Multiple nodes
         Node current = head;
+
         while (current.next != tail) {
             current = current.next;
         }
@@ -131,7 +131,6 @@ class CircularSinglyLinkedList {
         current.next = head;
         tail.next = null;
         tail = current;
-
         size--;
     }
 
