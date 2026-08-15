@@ -1,42 +1,52 @@
 
 class ReverseLinkedList {
 
+    static class Node {
+
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    static Node reverse(Node head) {
+        Node prev = null;
+        Node curr = head;
+
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+    static void printList(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
     public static void main(String[] args) {
-        ReverseLinkedList list = new ReverseLinkedList();
 
-        // list.reverseList();
-    }
+        Node head = new Node(10);
 
-    //  Definition for singly-linked list. 
-    static class ListNode {
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        head.next.next.next = new Node(40);
 
-        int val;
-        ListNode next;
+        System.out.println("Before:");
+        printList(head);
 
-        ListNode() {
-        }
+        head = reverse(head);
 
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    public ListNode reverseList(ListNode head) {
-        ListNode prevNode = null;
-        ListNode current = head;
-        ListNode nextNode = current.next;
-
-        while (current != null) {
-            current.next = prevNode;
-            prevNode = current;
-            current = nextNode;
-        }
-
-        return prevNode;
+        System.out.println("After:");
+        printList(head);
     }
 }
