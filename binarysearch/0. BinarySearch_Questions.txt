@@ -9,7 +9,7 @@
 -> Find an element in a rotated sorted array    ✅
 -> Find the first occurrence index of an element in a sorted rotated array  ✅
 -> Searching in nearly sorted array ✅
--> Floor/Ceil of an element
+-> Floor/Ceil of an element ✅
 -> Next letter
 -> Index of last 1 in sorted array
 -> Find the position of an element in infinite sorted array

@@ -29,7 +29,7 @@ class SerachInNearlySortedArray {
                 return mid - 1;
             }
 
-            if (mid + 1 <= n - 1 && target == arr[mid + 1]) {
+            if (mid + 1 <= end && target == arr[mid + 1]) {
                 return mid + 1;
             }
 
