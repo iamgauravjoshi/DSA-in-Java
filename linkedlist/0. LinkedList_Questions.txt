@@ -1,0 +1,15 @@
+------- BINARY SEARCH -------
+
+-> Implement Singly LinkedList and its methods ✅
+-> Implement Doubly LinkedList ✅
+-> Implement Circular Singly LinkedList ✅
+-> Implement Circular Doubly LinkedList ✅
+-> Reverse a LinkedList (iteration and recursion) ✅
+-> Find the middle node of LinkedList
+-> Check if a LinkedList is palindrome or not
+-> Check cycle in a LinkedList
+-> Merge two sorted LinkedList
+-> 
+-> 
+-> 
+-> 

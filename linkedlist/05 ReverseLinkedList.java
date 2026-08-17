@@ -24,6 +24,26 @@ class ReverseLinkedList {
         return prev;
     }
 
+    static Node solve(Node previous, Node current) {
+        if (current == null) {
+            return previous;
+        }
+
+        Node nextNode = current.next;
+        current.next = previous;
+        previous = current;
+        current = nextNode;
+
+        return solve(previous, current);
+    }
+
+    static Node recursiveReverse(Node head) {
+        Node current = head;
+        Node previous = null;
+
+        return solve(previous, current);
+    }
+
     static void printList(Node head) {
         Node temp = head;
         while (temp != null) {
@@ -44,7 +64,8 @@ class ReverseLinkedList {
         System.out.println("Before:");
         printList(head);
 
-        head = reverse(head);
+        // head = reverse(head);
+        head = recursiveReverse(head);
 
         System.out.println("After:");
         printList(head);
