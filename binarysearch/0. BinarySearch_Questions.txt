@@ -14,6 +14,7 @@
 -> Search insert position in a sorted array ✅
 -> Find Smallest Letter Greater Than Target  ✅
 -> Find the position of an element in infinite sorted array ✅
+-> Find the index of first 1 in an infinite sorted array of 0s and 1s   ✅
 -> Index of last 1 in sorted array
 -> Minimum difference element in a sorted array
 -> Bitonic array maximum element
