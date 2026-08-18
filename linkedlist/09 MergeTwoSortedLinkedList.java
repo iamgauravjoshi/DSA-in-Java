@@ -1,3 +1,24 @@
+/*
+Problem: Merge two sorted linked lists
+Given the head of two sorted linked lists consisting of nodes respectively. Merge both lists and return the head of the sorted merged list.
+
+# Example 1:
+Input: list1 = [1,2,4], list2 = [1,3,4]
+Output: [1,1,2,3,4,4]
+
+# Example 2:
+Input: list1 = [], list2 = []
+Output: []
+
+# Example 3:
+Input: list1 = [], list2 = [0]
+Output: [0]
+ 
+# Constraints:
+    -> The number of nodes in both lists is in the range [0, 50].
+    -> -100 <= Node.val <= 100
+    -> Both list1 and list2 are sorted in non-decreasing order.
+ */
 
 class Node {
 
@@ -21,7 +42,7 @@ class MergeTwoSortedLinkedList {
     }
 
     public static void main(String[] args) {
-        Solution s = new Solution();
+        MergeTwoSortedLinkedList s = new MergeTwoSortedLinkedList();
         Node head1 = new Node(1);
         head1.next = new Node(2);
         head1.next.next = new Node(4);
@@ -43,9 +64,6 @@ class MergeTwoSortedLinkedList {
         System.out.println("After:");
         printList(newHead);
     }
-}
-
-class Solution {
 
     public Node mergeTwoLists(Node list1, Node list2) {
         if (list1 == null && list2 == null) {

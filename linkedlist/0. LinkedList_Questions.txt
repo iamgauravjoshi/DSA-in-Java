@@ -8,8 +8,8 @@
 -> Find the middle node of LinkedList
 -> Check if a LinkedList is palindrome or not
 -> Check cycle in a LinkedList
--> Merge two sorted LinkedList
--> 
--> 
+-> Merge two sorted LinkedList  ✅
+-> Remove Duplicates from a Sorted Linked List  ✅
+-> Kth from End of Linked List  ✅
 -> 
 -> 
