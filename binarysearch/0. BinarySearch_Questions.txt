@@ -12,9 +12,9 @@
 -> Floor of an element in a sorted array ✅
 -> Ceil of an element in a sorted array ✅
 -> Search insert position in a sorted array ✅
--> Next letter
+-> Find Smallest Letter Greater Than Target  ✅
+-> Find the position of an element in infinite sorted array ✅
 -> Index of last 1 in sorted array
--> Find the position of an element in infinite sorted array
 -> Minimum difference element in a sorted array
 -> Bitonic array maximum element
 -> Search in bitonic array
