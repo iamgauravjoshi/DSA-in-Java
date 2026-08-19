@@ -47,7 +47,7 @@ class FindStartOfCycleInLinkedList {
         head.next.next.next = new Node(4);
         head.next.next.next.next = new Node(5);
         // Create cycle: last node points back to node containing 2
-        // head.next.next.next.next.next = head.next.next;
+        head.next.next.next.next.next = head.next.next;
 
         Node node = s.detectCycle(head);
 
