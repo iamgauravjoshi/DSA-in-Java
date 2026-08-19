@@ -79,19 +79,26 @@ class RemoveCycleInLinkedList {
             }
         }
 
-        if (isCycle) {
-            slow = head;
-            Node prev = null;
-            while (slow != fast) {
-                slow = slow.next;
-                prev = fast;
-                fast = fast.next;
-            }
-            prev.next = null;
-
-            return true;
+        if (!isCycle) {
+            return false;
         }
 
-        return false;
+        // Find starting point of cycle
+        slow = head;
+
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        // Find the last node of the cycle
+        while (fast.next != slow) {
+            fast = fast.next;
+        }
+
+        // Remove cycle
+        fast.next = null;
+
+        return true;
     }
 }
