@@ -16,9 +16,10 @@
 -> Find the position of an element in infinite sorted array ✅
 -> Find the index of first 1 in an infinite sorted array of 0s and 1s   ✅
 -> Minimum difference element in a sorted array ✅
--> Find Peak Element (peak > peak-1 and peak > peak+1 ... strictly greater than its neighbors)  ✅
--> Find bitonic point (strictly increasing -> Peak -> strictly decreasing)
--> Search in bitonic array
+-> Find Peak Element (peak > peak-1 and peak > peak+1 .. peak is greater than its neighbors)  ✅
+-> Peak Index in a Mountain Array   ✅
+-> Find bitonic point (increasing -> Peak -> decreasing) -> (same code as mountain array) ✅
+-> Search in bitonic array 
 -> Peak Index in a Mountain Array 
 -> Search in row wise + column wise sorted matrix
 -> Find element in sorted array that appears only occurance
