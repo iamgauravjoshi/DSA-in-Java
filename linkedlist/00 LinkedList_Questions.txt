@@ -5,7 +5,7 @@
 -> Implement Circular Singly LinkedList ✅
 -> Implement Circular Doubly LinkedList ✅
 -> Reverse a LinkedList (iteration and recursion) ✅
--> Find the middle node of LinkedList
+-> Find the middle node of LinkedList   ✅
 -> Check if a LinkedList is palindrome or not
 -> Check cycle in a LinkedList  ✅
 -> Find start of cycle in LinkedList ✅
