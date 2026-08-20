@@ -19,8 +19,8 @@
 -> Find Peak Element (peak > peak-1 and peak > peak+1 .. peak is greater than its neighbors)  ✅
 -> Peak Index in a Mountain Array   ✅
 -> Find bitonic point (increasing -> Peak -> decreasing) -> (same code as mountain array) ✅
--> Search in bitonic array 
--> Peak Index in a Mountain Array 
--> Search in row wise + column wise sorted matrix
--> Find element in sorted array that appears only occurance
+-> Find an element in bitonic array OR search in mountain array
+-> Search an element in a 2D matrix     ✅
+-> Search an element in a Row-Column sorted array
+-> Find element in sorted array that appears only once (Single among doubles in a sorted array)
 -> Allocate minimum no of pages
