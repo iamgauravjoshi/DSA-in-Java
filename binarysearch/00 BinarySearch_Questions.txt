@@ -20,7 +20,7 @@
 -> Peak Index in a Mountain Array   ✅
 -> Find bitonic point (increasing -> Peak -> decreasing) -> (same code as mountain array) ✅
 -> Find an element in bitonic array OR search in mountain array     ✅
--> Search an element in a 2D matrix    ✅
--> Search an element in a Row-Column sorted array
+-> Search an element in a 2D matrix   ✅
+-> Search an element in a Row-Column sorted matrix  ✅
 -> Find element in sorted array that appears only once (Single among doubles in a sorted array)
 -> Allocate minimum no of pages
