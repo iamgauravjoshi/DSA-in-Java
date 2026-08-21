@@ -6,7 +6,7 @@
 -> Implement Circular Doubly LinkedList ✅
 -> Reverse a LinkedList (iteration and recursion) ✅
 -> Find the middle node of LinkedList   ✅
--> Check if a LinkedList is palindrome or not
+-> Check if a LinkedList is palindrome or not   ✅
 -> Check cycle in a LinkedList  ✅
 -> Find start of cycle in LinkedList ✅
 -> Remove cycle in LinkedList ✅
@@ -14,4 +14,6 @@
 -> Remove Duplicates from a Sorted Linked List  ✅
 -> Kth from End of Linked List  ✅
 -> Remove kth Node From End of LinkedList   ✅
+-> Given two numbers represented by two lists, write a function that returns the sum list. The
+sum list is a list representation of the addition of two input numbers.
 -> 
