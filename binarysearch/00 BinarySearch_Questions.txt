@@ -22,5 +22,24 @@
 -> Find an element in bitonic array OR search in mountain array     ✅
 -> Search an element in a 2D matrix   ✅
 -> Search an element in a Row-Column sorted matrix  ✅
+-> Allocate minimum no of pages    ✅
 -> Find element in sorted array that appears only once (Single among doubles in a sorted array)
--> Allocate minimum no of pages
+
+
+
+-> Book Allocation Problem (GFG)
+-> Aggressive cow (spoj)
+-> Prata and roti (spoj)
+-> EKO (spoj)
+-> Painter Partition Problem
+-> 1482 Minimum Number of Days to Make m Bouquets
+-> 1283 Find the Smallest Divisor Given a Threshold
+-> 1231 Divide Chocolate
+-> 1011 Capacity To Ship Packages In N Days
+-> 875 Koko Eating Bananas Minimize 
+-> 774 Max Distance to Gas Station
+-> 410 Split Array Largest Sum
+-> 1552 Magnetic Force Between Two Balls - Leetcode
+
+
+-> Google kickstart A Q-3 2020
