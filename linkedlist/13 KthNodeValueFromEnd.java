@@ -1,18 +1,18 @@
 /*
-Problem: Kth from End of Linked List
+Problem: Get Kth node value from end of the Linked List
 Given the head of a linked list and an integer k, return the kth node from the end of the linked list. If k is greater than the number of nodes in the list, return -1.
 
 # Example 1:
 Input: head = [1,2,3,4,5], n = 2
-Output: [1,2,3,5]
+Output: 4
 
 # Example 2:
 Input: head = [1], n = 1
-Output: []
+Output: 1
 
 # Example 3:
-Input: head = [1,2], n = 1
-Output: [1]
+Input: head = [1,2], n = 3
+Output: -1
 
 
 # Constraints:
@@ -22,7 +22,7 @@ Output: [1]
  */
 
 // TWO POINTER/SLIDING WINDOW PATTERN
-class KthNodeFromEnd {
+class KthNodeValueFromEnd {
 
     static class Node {
 
@@ -45,19 +45,19 @@ class KthNodeFromEnd {
 
     public static void main(String[] args) {
         Node head = new Node(10);
-        // head.next = new Node(20);
-        // head.next.next = new Node(30);
-        // head.next.next.next = new Node(40);
-        // head.next.next.next.next = new Node(50);
-        // head.next.next.next.next.next = new Node(60);
-        head.next = new Node(5);
-        head.next.next = new Node(100);
-        head.next.next.next = new Node(5);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        head.next.next.next = new Node(40);
+        head.next.next.next.next = new Node(50);
+        head.next.next.next.next.next = new Node(60);
+        // head.next = new Node(5);
+        // head.next.next = new Node(100);
+        // head.next.next.next = new Node(5);
 
         System.out.println("Input:");
         printList(head);
 
-        int value = getKthFromEnd(head, 5);
+        int value = getKthFromEnd(head, 2);
 
         System.out.println();
 
