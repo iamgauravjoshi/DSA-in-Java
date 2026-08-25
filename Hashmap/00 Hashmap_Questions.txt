@@ -1,5 +1,6 @@
 ------- HASHMAP -------
 
 -> Two Sum problem   ✅
+-> First unique/non-repeating character in a string   ✅
 -> 
 -> 
