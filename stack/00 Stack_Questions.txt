@@ -1,7 +1,15 @@
 ------- STACK -------
 
+EASY =>
 -> Valid Parentheses    ✅
 -> 
+
+
+MEDIUM =>
 -> 
 -> 
+
+
+HARD =>
+-> Largest Rectangle in Histogram
 -> 

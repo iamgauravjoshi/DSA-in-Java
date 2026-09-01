@@ -2,10 +2,16 @@
 
 # I/P - O/P method (processed and un-processed) -----
 
+
+EASY =>
 -> Print 1 to n / n to 1
+-> Count # of occurrences
+
+
+MEDIUM => 
 -> Height of a Binary Tree
 -> Sort an array
--> Sort a stack
+-> Sort a stack (Medium)	✅
 -> String Subsequence
 -> String Substring
 -> Array Subset
@@ -13,14 +19,17 @@
 -> Reverse a stack using recursion
 -> K-th Symbol in Grammar
 -> Remove duplicates from a string
--> Count # of occurrences
 -> Permutation 
-	a) with space (variation)
-	b) with case change
-8) Josephus problem / Execution in circle
+	a. with space (variation)
+	b. with case change
+
+
+HARD =>
+-> Josephus problem / Execution in circle
+-> 
 
 
 # Extended I/P - O/P method -----
 
-1) Binary string with no of 1s > no of 0's
-2) Generate balanced parenthesis
+-> Binary string with no of 1s > no of 0's
+-> Generate balanced parenthesis
