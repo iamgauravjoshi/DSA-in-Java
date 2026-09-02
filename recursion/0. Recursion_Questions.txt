@@ -10,7 +10,7 @@ EASY =>
 MEDIUM => 
 -> Sort an array
 -> Sort a stack (Medium)	✅
--> String Subsequence
+-> All Subsequences of a String  	✅
 -> String Substring
 -> Array Subset
 -> Delete middle element in a stack
