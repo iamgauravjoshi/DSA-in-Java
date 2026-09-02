@@ -2,11 +2,9 @@
 
 # I/P - O/P method (processed and un-processed) -----
 
-
 EASY =>
--> Print 1 to n / n to 1
--> Count # of occurrences
--> Height of a Binary Tree     ✅
+-> Count number of occurrences using recursion	 ✅
+-> Height of a Binary Tree    ✅
 
 
 MEDIUM => 
