@@ -1,3 +1,19 @@
+/*
+Problem: Sort a Stack
+Given a stack of integers st[]. Sort the stack in ascending order (smallest element at the bottom and largest at the top).
+
+# Example 01:
+Input: st[] = [41, 3, 32, 2, 11]
+Output: [41, 32, 11, 3, 2]
+
+# Example 02:
+Input: st[] = [2, 2, 7, 4, 1]
+Output: [1, 2, 2, 4, 7]
+
+# Constraints:
+    1 ≤ st.size() ≤ 103
+    0 ≤ stack element ≤ 103 
+ */
 
 import java.util.Stack;
 
@@ -23,19 +39,17 @@ class SortStack {
         System.out.println(st);
     }
 
-    static void sortStack(Stack<Integer> st) {
+    public static void sortStack(Stack<Integer> st) {
         if (st.isEmpty()) {
             return;
         }
 
         int top = st.pop();
-
         sortStack(st);
-
         insert(st, top);
     }
 
-    static void insert(Stack<Integer> st, int num) {
+    private static void insert(Stack<Integer> st, int num) {
         if (st.empty() || st.peek() <= num) {
             st.push(num);
             return;
