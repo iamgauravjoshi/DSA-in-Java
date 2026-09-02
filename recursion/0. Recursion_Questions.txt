@@ -11,6 +11,7 @@ MEDIUM =>
 -> Sort an array
 -> Sort a stack (Medium)	✅
 -> All Subsequences of a String  	✅
+-> All String Permutations in Sorted Order 	✅
 -> String Substring
 -> Array Subset
 -> Delete middle element in a stack
