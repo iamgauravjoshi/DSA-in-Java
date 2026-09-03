@@ -75,4 +75,20 @@ class RemoveDuplicatesInSortedLL {
         }
         return head;
     }
+
+    public Node deleteDuplicates(Node head) {
+        Node current = head;
+
+        while (current != null && current.next != null) {
+            if (current.data == current.next.data) {
+                // Skip the duplicate node
+                current.next = current.next.next;
+            } else {
+                // Move to the next unique value
+                current = current.next;
+            }
+        }
+
+        return head;
+    }
 }
